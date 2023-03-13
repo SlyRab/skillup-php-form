@@ -19,7 +19,7 @@ class Connection
             $db->exec($table);
         } catch (\Throwable $exception)
         {
-            var_dump($exception);
+            die();
         }
 
         return $db;
