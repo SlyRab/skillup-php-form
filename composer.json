@@ -1,0 +1,25 @@
+{
+  "name": "vendor_name/skillup-php-iterator",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "achevordin",
+      "email": "a.chevordin@iqdev.digital"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Test\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^8.1",
+    "rakit/validation": "^1.4",
+
+    "doctrine/dbal": "^3",
+    "doctrine/orm": "^2",
+    "ext-pdo": "*"
+  }
+}
