@@ -2,14 +2,10 @@
 
 namespace Test\Authentication\Domain\User;
 
-use Test\Authentication\Domain\Exception\AuthException;
-use Test\Authentication\Domain\Interfaces\IJwtWorker;
 
 class User
 {
     private int $id;
-    private JwtAccess $jwtAccess;
-    private IJwtWorker $jwtCreator;
 
     public function __construct(
         private string $email,
@@ -19,21 +15,6 @@ class User
         private string $password,
     )
     {
-    }
-
-    public function authorize(string $email, string $password): JwtAccess
-    {
-        if (!$email === $this->email || !$password === $this->password)
-        {
-            throw new AuthException();
-        }
-
-        if ($this->jwtCreator->checkJWTExpired($this->jwtAccess->refreshToken))
-        {
-            $this->jwtAccess = new JwtAccess($this->jwtCreator->createJWT(), $this->jwtCreator->createJWT());
-        }
-
-        return $this->jwtAccess;
     }
 
     public function getName()
